@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Calendar, MapPin, Building, Award, Briefcase, GraduationCap, Star, Zap, Target, Code, Server, Database, Cloud, Settings, Brain, Globe } from 'lucide-react';
+import { Calendar, MapPin, Building, Award, Briefcase, GraduationCap, Star, Target, Code, Server, Database, Cloud, Settings, Brain, Globe } from 'lucide-react';
 import { experience, education, certifications } from '../data/portfolioData';
 
 const Experience = () => {

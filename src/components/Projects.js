@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { ExternalLink, Github, FolderOpen, Star, Zap, Globe, Smartphone, Brain, Code, Server, Database, Cloud, Settings } from 'lucide-react';
+import { ExternalLink, Github, FolderOpen, Star, Globe, Smartphone, Brain, Code, Server, Database, Cloud, Settings } from 'lucide-react';
 import { projects } from '../data/portfolioData';
 
 const Projects = () => {
@@ -45,7 +45,7 @@ const Projects = () => {
       name: category,
       icon: category.includes('Mobile') ? Smartphone : 
             category.includes('AI') ? Brain : 
-            category.includes('Full') ? Globe : Zap
+            category.includes('Full') ? Globe : Code
     }))
   ];
 
