@@ -1,4 +1,5 @@
 # Modern Portfolio Website
+[Click To View](https://adityass-portfolio.netlify.app/)
 
 A beautiful, responsive portfolio website built with React, Tailwind CSS, and Framer Motion. Features dark/light mode toggle, smooth animations, and a comprehensive data-driven structure.
 
