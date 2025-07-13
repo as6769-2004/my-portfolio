@@ -60,17 +60,35 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitStatus(null);
     
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
+    try {
+      // Create Gmail mailto link with form details
+      const subject = encodeURIComponent(formData.subject);
+      const body = encodeURIComponent(
+        `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+      );
+      
+      const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${contactInfo.email}&su=${subject}&body=${body}`;
+      
+      // Open Gmail in new tab
+      window.open(gmailUrl, '_blank');
+      
       setSubmitStatus('success');
       setFormData({ name: '', email: '', subject: '', message: '' });
       
       setTimeout(() => {
         setSubmitStatus(null);
-      }, 3000);
-    }, 2000);
+      }, 5000);
+      
+    } catch (error) {
+      setSubmitStatus('error');
+      setTimeout(() => {
+        setSubmitStatus(null);
+      }, 5000);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const containerVariants = {
@@ -262,7 +280,7 @@ const Contact = () => {
                     onChange={handleInputChange}
                     required
                     className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-white dark:bg-dark-700 border border-gray-200 dark:border-dark-600 rounded-lg text-primary placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300 text-sm sm:text-base"
-                    placeholder="your.email@example.com"
+                    placeholder="your.email.com"
                   />
                 </div>
               </div>
@@ -316,12 +334,12 @@ const Contact = () => {
                 ) : (
                   <>
                     <Send size={18} className="sm:w-5 sm:h-5" />
-                    <span>Send Message</span>
+                    <span>Open in Gmail</span>
                   </>
                 )}
               </motion.button>
 
-              {/* Success Message */}
+              {/* Success/Error Messages */}
               {submitStatus === 'success' && (
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
@@ -329,7 +347,18 @@ const Contact = () => {
                   className="p-3 sm:p-4 bg-green-500/20 border border-green-500/30 rounded-lg text-green-600 dark:text-green-400 text-center text-sm sm:text-base flex items-center justify-center"
                 >
                   <CheckCircle className="w-4 h-4 mr-2" />
-                  Thank you! Your message has been sent successfully.
+                  Gmail opened! Please send the email to complete your message.
+                </motion.div>
+              )}
+              
+              {submitStatus === 'error' && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="p-3 sm:p-4 bg-red-500/20 border border-red-500/30 rounded-lg text-red-600 dark:text-red-400 text-center text-sm sm:text-base flex items-center justify-center"
+                >
+                  <MessageCircle className="w-4 h-4 mr-2" />
+                  Sorry! There was an error sending your message. Please try again.
                 </motion.div>
               )}
             </form>

@@ -271,8 +271,8 @@ export const certifications = [
 ];
 
 export const contactInfo = {
-  email: "your.email@example.com",
-  phone: "+1 (555) 123-4567",
+  email: "adityasagar9991@gmail.com",
+  phone: "+91 9709303105",
   location: "Your City, Country",
   social: {
     github: "https://github.com/yourusername",
