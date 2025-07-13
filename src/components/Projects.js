@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { ExternalLink, Github, FolderOpen, Star, Globe, Smartphone, Brain, Code, Server, Database, Cloud, Settings } from 'lucide-react';
@@ -11,6 +11,41 @@ const Projects = () => {
   });
 
   const [selectedCategory, setSelectedCategory] = useState('all');
+  const [projectScreenshots, setProjectScreenshots] = useState({});
+
+  // Function to generate screenshot URL using a screenshot service
+  const getScreenshotUrl = (url) => {
+    // Using a free screenshot service (you can also use your own server)
+    return `https://api.apiflash.com/v1/urltoimage?access_key=YOUR_API_KEY&url=${encodeURIComponent(url)}&format=jpeg&quality=85&width=800&height=600`;
+    
+    // Alternative services:
+    // return `https://screenshotapi.net/api/v1/screenshot?url=${encodeURIComponent(url)}&token=YOUR_TOKEN`;
+    // return `https://api.cloudinary.com/v1_1/YOUR_CLOUD_NAME/image/fetch/w_800,h_600,c_fill/${encodeURIComponent(url)}`;
+  };
+
+  // Load screenshots for projects
+  useEffect(() => {
+    const loadScreenshots = async () => {
+      const screenshots = {};
+      
+      for (const project of projects) {
+        if (project.live && project.live !== 'https://your-portfolio.vercel.app') {
+          try {
+            // For now, we'll use a placeholder approach
+            // In production, you'd want to use a proper screenshot service
+            screenshots[project.id] = project.image || `/project-${project.id}.jpg`;
+          } catch (error) {
+            console.log(`Failed to load screenshot for ${project.title}`);
+            screenshots[project.id] = project.image || `/project-${project.id}.jpg`;
+          }
+        }
+      }
+      
+      setProjectScreenshots(screenshots);
+    };
+
+    loadScreenshots();
+  }, []);
 
   // Tech icon mapping for project technologies
   const techIconMap = {
@@ -156,7 +191,21 @@ const Projects = () => {
               <div className="card-hover bg-card border border-card rounded-xl overflow-hidden relative">
                 {/* Project Image */}
                 <div className="relative h-40 sm:h-48 bg-gradient-to-br from-primary-500/20 to-secondary-500/20 overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary-500/10 to-secondary-500/10 flex items-center justify-center">
+                  {/* Screenshot or Fallback */}
+                  {projectScreenshots[project.id] ? (
+                    <img
+                      src={projectScreenshots[project.id]}
+                      alt={`${project.title} screenshot`}
+                      className="w-full h-full object-cover"
+                      onError={(e) => {
+                        e.target.style.display = 'none';
+                        e.target.nextSibling.style.display = 'flex';
+                      }}
+                    />
+                  ) : null}
+                  
+                  {/* Fallback with gradient and project initial */}
+                  <div className={`absolute inset-0 bg-gradient-to-br from-primary-500/10 to-secondary-500/10 flex items-center justify-center ${projectScreenshots[project.id] ? 'hidden' : 'flex'}`}>
                     <div className="text-4xl sm:text-6xl font-bold gradient-text opacity-20">
                       {project.title.charAt(0)}
                     </div>

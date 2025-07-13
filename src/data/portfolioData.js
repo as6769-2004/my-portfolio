@@ -127,7 +127,7 @@ export const projects = [
     image: "/project4.jpg",
     technologies: ["React", "Tailwind CSS", "Framer Motion"],
     github: "https://github.com/yourusername/portfolio",
-    live: "https://your-portfolio.vercel.app",
+    live: "https://adityass-portfolio.netlify.app/",
     category: "Frontend",
     featured: false
   },
