@@ -316,4 +316,4 @@ Feel free to submit issues and enhancement requests!
 
 ---
 
-**Happy coding! 🚀** # my-portfolio
+**Happy coding! 🚀**
