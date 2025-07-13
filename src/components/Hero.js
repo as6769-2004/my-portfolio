@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, Github, Linkedin, Mail, Download } from 'lucide-react';
+import { ArrowRight, Github, Linkedin, Mail, Download, Code, Sparkles } from 'lucide-react';
 import { personalInfo, contactInfo } from '../data/portfolioData';
 
 const Hero = () => {
@@ -30,15 +30,24 @@ const Hero = () => {
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden section-bg-alt">
       {/* Enhanced Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
+        {/* Animated gradient orbs */}
         <motion.div
-          animate={{ rotate: 360 }}
+          animate={{ 
+            rotate: 360,
+            scale: [1, 1.2, 1],
+            opacity: [0.3, 0.6, 0.3]
+          }}
           transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-          className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-r from-primary-500/10 to-secondary-500/10 rounded-full blur-3xl"
+          className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-r from-primary-500/20 to-secondary-500/20 rounded-full blur-3xl"
         />
         <motion.div
-          animate={{ rotate: -360 }}
+          animate={{ 
+            rotate: -360,
+            scale: [1.2, 1, 1.2],
+            opacity: [0.4, 0.7, 0.4]
+          }}
           transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-          className="absolute -bottom-40 -left-40 w-96 h-96 bg-gradient-to-r from-secondary-500/10 to-primary-500/10 rounded-full blur-3xl"
+          className="absolute -bottom-40 -left-40 w-96 h-96 bg-gradient-to-r from-secondary-500/20 to-primary-500/20 rounded-full blur-3xl"
         />
         <motion.div
           animate={{ 
@@ -46,7 +55,7 @@ const Hero = () => {
             opacity: [0.3, 0.6, 0.3]
           }}
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/4 left-1/4 w-64 h-64 bg-gradient-to-r from-primary-500/5 to-secondary-500/5 rounded-full blur-2xl"
+          className="absolute top-1/4 left-1/4 w-64 h-64 bg-gradient-to-r from-primary-500/10 to-secondary-500/10 rounded-full blur-2xl"
         />
         <motion.div
           animate={{ 
@@ -54,12 +63,31 @@ const Hero = () => {
             opacity: [0.4, 0.7, 0.4]
           }}
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-gradient-to-r from-secondary-500/5 to-primary-500/5 rounded-full blur-2xl"
+          className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-gradient-to-r from-secondary-500/10 to-primary-500/10 rounded-full blur-2xl"
+        />
+        
+        {/* Floating particles */}
+        <motion.div
+          animate={{ y: [0, -20, 0], opacity: [0.5, 1, 0.5] }}
+          transition={{ duration: 3, repeat: Infinity }}
+          className="absolute top-20 left-20 w-2 h-2 bg-primary-500 rounded-full"
+        />
+        <motion.div
+          animate={{ y: [0, 20, 0], opacity: [0.3, 0.8, 0.3] }}
+          transition={{ duration: 4, repeat: Infinity, delay: 1 }}
+          className="absolute top-40 right-40 w-1 h-1 bg-secondary-500 rounded-full"
+        />
+        <motion.div
+          animate={{ x: [0, 15, 0], opacity: [0.4, 0.9, 0.4] }}
+          transition={{ duration: 5, repeat: Infinity, delay: 2 }}
+          className="absolute bottom-40 left-1/3 w-1.5 h-1.5 bg-primary-500 rounded-full"
         />
       </div>
 
       <div className="max-w-7xl mx-auto mobile-optimized relative z-10">
-        <div className="text-center">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
+          {/* Left Column - Content */}
+          <div className="text-center lg:text-left">
           {/* Greeting */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -67,7 +95,10 @@ const Hero = () => {
             transition={{ duration: 0.5 }}
             className="mb-4"
           >
-            <span className="text-primary-500 font-medium mobile-text">Hello, I'm</span>
+            <span className="text-primary-500 font-medium mobile-text flex items-center justify-center">
+              <Sparkles className="w-4 h-4 mr-2" />
+              Hello, I'm
+            </span>
           </motion.div>
 
           {/* Name */}
@@ -94,8 +125,9 @@ const Hero = () => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.3 }}
-                className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-secondary font-medium"
+                className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-secondary font-medium flex items-center justify-center"
               >
+                <Code className="w-5 h-5 mr-2 text-primary-500" />
                 {texts[currentText]}
               </motion.h2>
             </AnimatePresence>
@@ -142,7 +174,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.5 }}
-            className="flex justify-center space-x-4 sm:space-x-6"
+            className="flex justify-center lg:justify-start space-x-4 sm:space-x-6"
           >
             {socialLinks.map((social, index) => (
               <motion.a
@@ -157,6 +189,48 @@ const Hero = () => {
                 <social.icon size={18} className="sm:w-5 sm:h-5" />
               </motion.a>
             ))}
+          </motion.div>
+          </div>
+
+          {/* Right Column - Profile Image */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="hidden lg:flex justify-center"
+          >
+            <div className="relative">
+              <div className="w-80 h-80 relative">
+                <div className="absolute inset-0 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-full blur-xl opacity-30"></div>
+                <div className="relative w-full h-full bg-gradient-to-br from-primary-500 to-secondary-500 rounded-full p-2">
+                  <div className="w-full h-full bg-card rounded-full overflow-hidden">
+                    <img
+                      src={personalInfo.heroImage}
+                      alt={personalInfo.name}
+                      className="w-full h-full object-cover rounded-full"
+                      onError={(e) => {
+                        e.target.style.display = 'none';
+                        e.target.nextSibling.style.display = 'flex';
+                      }}
+                    />
+                    <div className="w-full h-full bg-gradient-to-br from-primary-500/20 to-secondary-500/20 rounded-full flex items-center justify-center text-4xl sm:text-6xl font-bold gradient-text" style={{ display: 'none' }}>
+                      {personalInfo.avatar}
+                    </div>
+                  </div>
+                </div>
+                {/* Floating elements around avatar */}
+                <motion.div
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                  className="absolute -top-4 -right-4 w-8 h-8 bg-primary-500/20 rounded-full"
+                />
+                <motion.div
+                  animate={{ rotate: -360 }}
+                  transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+                  className="absolute -bottom-4 -left-4 w-6 h-6 bg-secondary-500/20 rounded-full"
+                />
+              </div>
+            </div>
           </motion.div>
         </div>
       </div>

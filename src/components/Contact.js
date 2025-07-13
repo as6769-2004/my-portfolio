@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Mail, Phone, MapPin, Send, Github, Linkedin, Twitter, MessageCircle, Instagram, Youtube } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Github, Linkedin, Twitter, Instagram, Youtube, MessageCircle, Clock, CheckCircle } from 'lucide-react';
 import { contactInfo, personalInfo } from '../data/portfolioData';
 
 const Contact = () => {
@@ -89,8 +89,28 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="mobile-padding section-bg-alt">
-      <div className="max-w-7xl mx-auto mobile-optimized">
+    <section id="contact" className="mobile-padding section-bg-alt relative overflow-hidden">
+      {/* Enhanced Background */}
+      <div className="absolute inset-0">
+        <motion.div
+          animate={{ 
+            rotate: -360,
+            scale: [1, 1.2, 1]
+          }}
+          transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+          className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-primary-500/5 to-secondary-500/5 rounded-full blur-3xl"
+        />
+        <motion.div
+          animate={{ 
+            rotate: 360,
+            scale: [1.2, 1, 1.2]
+          }}
+          transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+          className="absolute bottom-0 right-0 w-80 h-80 bg-gradient-to-tl from-secondary-500/5 to-primary-500/5 rounded-full blur-3xl"
+        />
+      </div>
+
+      <div className="max-w-7xl mx-auto mobile-optimized relative z-10">
         <motion.div
           ref={ref}
           initial="hidden"
@@ -100,8 +120,9 @@ const Contact = () => {
         >
           <motion.h2
             variants={itemVariants}
-            className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-primary"
+            className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-primary flex items-center justify-center"
           >
+            <MessageCircle className="w-8 h-8 sm:w-10 sm:h-10 mr-3 text-primary-500" />
             Get In <span className="gradient-text">Touch</span>
           </motion.h2>
           <motion.p
@@ -121,7 +142,8 @@ const Contact = () => {
             className="space-y-6 sm:space-y-8"
           >
             <div>
-              <h3 className="text-xl sm:text-2xl font-bold text-primary mb-4 sm:mb-6">
+              <h3 className="text-xl sm:text-2xl font-bold text-primary mb-4 sm:mb-6 flex items-center">
+                <MessageCircle className="w-6 h-6 mr-2 text-primary-500" />
                 Let's Start a <span className="gradient-text">Conversation</span>
               </h3>
               <p className="text-secondary leading-relaxed mb-6 sm:mb-8 mobile-text">
@@ -153,7 +175,10 @@ const Contact = () => {
 
             {/* Social Links */}
             <div>
-              <h4 className="text-base sm:text-lg font-semibold text-primary mb-3 sm:mb-4">Follow Me</h4>
+              <h4 className="text-base sm:text-lg font-semibold text-primary mb-3 sm:mb-4 flex items-center">
+                <MessageCircle className="w-4 h-4 mr-2" />
+                Follow Me
+              </h4>
               <div className="flex space-x-3 sm:space-x-4">
                 {socialLinks.map((social, index) => (
                   <motion.a
@@ -183,9 +208,13 @@ const Contact = () => {
             >
               <div className="flex items-center space-x-2 sm:space-x-3 mb-2 sm:mb-3">
                 <div className="w-2 h-2 sm:w-3 sm:h-3 bg-green-500 rounded-full animate-pulse"></div>
-                <span className="text-green-600 dark:text-green-400 font-medium text-sm sm:text-base">{contactInfo.availability}</span>
+                <span className="text-green-600 dark:text-green-400 font-medium text-sm sm:text-base flex items-center">
+                  <CheckCircle className="w-4 h-4 mr-1" />
+                  {contactInfo.availability}
+                </span>
               </div>
-              <p className="text-secondary text-xs sm:text-sm">
+              <p className="text-secondary text-xs sm:text-sm flex items-center">
+                <Clock className="w-3 h-3 mr-1" />
                 {contactInfo.responseTime}
               </p>
             </motion.div>
@@ -198,7 +227,10 @@ const Contact = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="bg-card border border-card rounded-xl p-6 sm:p-8"
           >
-            <h3 className="text-xl sm:text-2xl font-bold text-primary mb-4 sm:mb-6">Send Message</h3>
+            <h3 className="text-xl sm:text-2xl font-bold text-primary mb-4 sm:mb-6 flex items-center">
+              <Send className="w-6 h-6 mr-2 text-primary-500" />
+              Send Message
+            </h3>
             
             <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
               <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
@@ -294,8 +326,9 @@ const Contact = () => {
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="p-3 sm:p-4 bg-green-500/20 border border-green-500/30 rounded-lg text-green-600 dark:text-green-400 text-center text-sm sm:text-base"
+                  className="p-3 sm:p-4 bg-green-500/20 border border-green-500/30 rounded-lg text-green-600 dark:text-green-400 text-center text-sm sm:text-base flex items-center justify-center"
                 >
+                  <CheckCircle className="w-4 h-4 mr-2" />
                   Thank you! Your message has been sent successfully.
                 </motion.div>
               )}

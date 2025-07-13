@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Calendar, MapPin, Building, Award } from 'lucide-react';
+import { Calendar, MapPin, Building, Award, Briefcase, GraduationCap, Star, Zap, Target, Code, Server, Database, Cloud, Settings, Brain, Globe } from 'lucide-react';
 import { experience, education, certifications } from '../data/portfolioData';
 
 const Experience = () => {
@@ -9,6 +9,28 @@ const Experience = () => {
     triggerOnce: true,
     threshold: 0.1,
   });
+
+  // Tech icon mapping for experience technologies
+  const techIconMap = {
+    'React': { icon: Code, bgColor: 'bg-blue-500', textColor: 'text-white' },
+    'Python': { icon: Code, bgColor: 'bg-blue-600', textColor: 'text-white' },
+    'TensorFlow': { icon: Brain, bgColor: 'bg-orange-500', textColor: 'text-white' },
+    'AWS': { icon: Cloud, bgColor: 'bg-orange-500', textColor: 'text-white' },
+    'Docker': { icon: Settings, bgColor: 'bg-blue-500', textColor: 'text-white' },
+    'Flutter': { icon: Globe, bgColor: 'bg-blue-500', textColor: 'text-white' },
+    'Dart': { icon: Code, bgColor: 'bg-blue-600', textColor: 'text-white' },
+    'Firebase': { icon: Cloud, bgColor: 'bg-orange-500', textColor: 'text-white' },
+    'Git': { icon: Settings, bgColor: 'bg-orange-500', textColor: 'text-white' },
+    'REST APIs': { icon: Server, bgColor: 'bg-green-500', textColor: 'text-white' },
+    'Node.js': { icon: Server, bgColor: 'bg-green-600', textColor: 'text-white' },
+    'Express.js': { icon: Server, bgColor: 'bg-gray-600', textColor: 'text-white' },
+    'MongoDB': { icon: Database, bgColor: 'bg-green-600', textColor: 'text-white' },
+    'PostgreSQL': { icon: Database, bgColor: 'bg-blue-600', textColor: 'text-white' },
+    'Pandas': { icon: Code, bgColor: 'bg-blue-500', textColor: 'text-white' },
+    'Scikit-learn': { icon: Brain, bgColor: 'bg-orange-500', textColor: 'text-white' },
+    'JavaScript': { icon: Code, bgColor: 'bg-yellow-500', textColor: 'text-black' },
+    'HTML/CSS': { icon: Code, bgColor: 'bg-orange-500', textColor: 'text-white' },
+  };
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -26,8 +48,28 @@ const Experience = () => {
   };
 
   return (
-    <section id="experience" className="mobile-padding section-bg">
-      <div className="max-w-7xl mx-auto mobile-optimized">
+    <section id="experience" className="mobile-padding section-bg relative overflow-hidden">
+      {/* Enhanced Background */}
+      <div className="absolute inset-0">
+        <motion.div
+          animate={{ 
+            rotate: 360,
+            scale: [1, 1.1, 1]
+          }}
+          transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+          className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl from-primary-500/5 to-secondary-500/5 rounded-full blur-3xl"
+        />
+        <motion.div
+          animate={{ 
+            rotate: -360,
+            scale: [1.1, 1, 1.1]
+          }}
+          transition={{ duration: 35, repeat: Infinity, ease: "linear" }}
+          className="absolute bottom-0 left-0 w-72 h-72 bg-gradient-to-tr from-secondary-500/5 to-primary-500/5 rounded-full blur-3xl"
+        />
+      </div>
+
+      <div className="max-w-7xl mx-auto mobile-optimized relative z-10">
         <motion.div
           ref={ref}
           initial="hidden"
@@ -37,8 +79,9 @@ const Experience = () => {
         >
           <motion.h2
             variants={itemVariants}
-            className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-primary"
+            className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-primary flex items-center justify-center"
           >
+            <Briefcase className="w-8 h-8 sm:w-10 sm:h-10 mr-3 text-primary-500" />
             Work <span className="gradient-text">Experience</span>
           </motion.h2>
           <motion.p
@@ -86,7 +129,10 @@ const Experience = () => {
                       <div className="flex-1 bg-card border border-card rounded-xl p-4 sm:p-6">
                         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3 sm:mb-4">
                           <div>
-                            <h4 className="text-lg sm:text-xl font-bold text-primary mb-1">{exp.title}</h4>
+                            <h4 className="text-lg sm:text-xl font-bold text-primary mb-1 flex items-center">
+                              <Target className="w-4 h-4 mr-2 text-primary-500" />
+                              {exp.title}
+                            </h4>
                             <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-4 text-xs sm:text-sm text-secondary space-y-1 sm:space-y-0">
                               <span className="flex items-center">
                                 <Building className="w-3 h-3 sm:w-4 sm:h-4 mr-1" />
@@ -99,7 +145,8 @@ const Experience = () => {
                             </div>
                           </div>
                           <div className="flex items-center space-x-2 mt-2 sm:mt-0">
-                            <span className="px-2 sm:px-3 py-1 bg-primary-500/20 text-primary-500 rounded-full text-xs">
+                            <span className="px-2 sm:px-3 py-1 bg-primary-500/20 text-primary-500 rounded-full text-xs flex items-center">
+                              <Calendar className="w-3 h-3 mr-1" />
                               {exp.period}
                             </span>
                           </div>
@@ -111,19 +158,30 @@ const Experience = () => {
 
                         {/* Technologies */}
                         <div className="flex flex-wrap gap-1 sm:gap-2 mb-3 sm:mb-4">
-                          {exp.technologies.map((tech) => (
-                            <span
-                              key={tech}
-                              className="px-2 sm:px-3 py-1 bg-gray-100 dark:bg-dark-700 text-primary-500 text-xs rounded-full"
-                            >
-                              {tech}
-                            </span>
-                          ))}
+                          {exp.technologies.map((tech) => {
+                            const techInfo = techIconMap[tech];
+                            const IconComponent = techInfo ? techInfo.icon : Code;
+                            const bgColor = techInfo ? techInfo.bgColor : 'bg-gray-500';
+                            const textColor = techInfo ? techInfo.textColor : 'text-white';
+                            
+                            return (
+                              <span
+                                key={tech}
+                                className={`px-2 sm:px-3 py-1 ${bgColor} ${textColor} text-xs rounded-full flex items-center space-x-1`}
+                              >
+                                <IconComponent className="w-3 h-3" />
+                                <span>{tech}</span>
+                              </span>
+                            );
+                          })}
                         </div>
 
                         {/* Achievements */}
                         <div className="space-y-2">
-                          <h5 className="text-xs sm:text-sm font-semibold text-primary mb-2">Key Achievements:</h5>
+                          <h5 className="text-xs sm:text-sm font-semibold text-primary mb-2 flex items-center">
+                            <Star className="w-3 h-3 mr-1" />
+                            Key Achievements:
+                          </h5>
                           <ul className="space-y-1">
                             {exp.achievements.map((achievement, idx) => (
                               <li key={idx} className="text-xs sm:text-sm text-secondary flex items-start">
@@ -151,7 +209,7 @@ const Experience = () => {
             {/* Education */}
             <div>
               <h3 className="text-xl sm:text-2xl font-bold text-primary mb-4 sm:mb-6 flex items-center">
-                <Award className="w-5 h-5 sm:w-6 sm:h-6 mr-2 sm:mr-3 text-secondary-500" />
+                <GraduationCap className="w-5 h-5 sm:w-6 sm:h-6 mr-2 sm:mr-3 text-secondary-500" />
                 Education
               </h3>
 
@@ -163,7 +221,10 @@ const Experience = () => {
                   transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
                   className="bg-card border border-card rounded-xl p-4 sm:p-6 mb-4 sm:mb-6"
                 >
-                  <h4 className="text-base sm:text-lg font-bold text-primary mb-2">{edu.degree}</h4>
+                  <h4 className="text-base sm:text-lg font-bold text-primary mb-2 flex items-center">
+                    <GraduationCap className="w-4 h-4 mr-2 text-primary-500" />
+                    {edu.degree}
+                  </h4>
                   <p className="text-primary-500 font-medium mb-2 text-sm sm:text-base">{edu.school}</p>
                   <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-4 text-xs sm:text-sm text-secondary mb-2 sm:mb-3 space-y-1 sm:space-y-0">
                     <span className="flex items-center">
@@ -190,7 +251,10 @@ const Experience = () => {
 
             {/* Certifications */}
             <div>
-              <h3 className="text-xl sm:text-2xl font-bold text-primary mb-4 sm:mb-6">Certifications</h3>
+              <h3 className="text-xl sm:text-2xl font-bold text-primary mb-4 sm:mb-6 flex items-center">
+                <Award className="w-5 h-5 sm:w-6 sm:h-6 mr-2 text-primary-500" />
+                Certifications
+              </h3>
               <div className="space-y-3 sm:space-y-4">
                 {certifications.map((cert, index) => (
                   <motion.div

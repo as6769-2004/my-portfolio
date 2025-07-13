@@ -5,20 +5,24 @@ export const personalInfo = {
   name: "Aditya Sagar Sharma",
   title: "Full Stack Developer",
   subtitle: "AI-Integrated Applications & Practical Solutions",
-  email: "your.email@example.com",
-  phone: "+1 (555) 123-4567",
-  location: "Your City, Country",
-  github: "https://github.com/yourusername",
-  linkedin: "https://linkedin.com/in/yourusername",
-  twitter: "https://twitter.com/yourusername",
+  email: "adityasagar9991@gmail.com",
+  phone: "+91 9709303105",
+  location: "Muzaffarpur, Bihar",
+  github: "https://github.com/as6769-2004",
+  linkedin: "https://www.linkedin.com/in/aditya-sagar-sharma-1955a7288/",
+  twitter: "",
   website: "https://yourwebsite.com",
   avatar: "AS", // Initials for avatar
+  profileImage: "/profile-image.jpg", // Your profile image - add to public folder
+  heroImage: "/hero-image.jpg", // Your hero image - add to public folder
+  favicon: "/favicon.ico", // Your favicon - add to public folder
   bio: "I'm a passionate Full Stack Developer specializing in AI-integrated applications and practical solutions. My journey in technology has evolved from basic programming to building complex systems that solve real-world problems through innovative AI integration.",
   about: [
     "I specialize in Flutter development, Python AI integration, and full-stack systems.",
     "My approach combines cutting-edge AI technologies with robust backend solutions, creating applications that are both intelligent and user-friendly."
   ],
   specialties: [
+    "Full Stack Development",
     "Flutter App Development",
     "AI Integration & ML",
     "Backend & Database Engineering",
@@ -282,11 +286,14 @@ export const contactInfo = {
 };
 
 export const siteConfig = {
-  title: "Your Name - Full Stack Developer",
+  title: "Aditya Sagar Sharma - Full Stack Developer",
   description: "Passionate Full Stack Developer specializing in AI-integrated applications and practical solutions",
   keywords: ["Full Stack Developer", "AI", "Flutter", "React", "Python", "Machine Learning"],
-  author: "Your Name",
-  url: "https://your-portfolio.vercel.app"
+  author: "Aditya Sagar Sharma",
+  url: "https://your-portfolio.vercel.app",
+  favicon: "/favicon.ico",
+  profileImage: "/profile-image.jpg",
+  heroImage: "/hero-image.jpg"
 };
 
 // Helper function to get projects by category

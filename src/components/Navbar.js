@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Menu, X, Download } from 'lucide-react';
+import { Menu, X, Download, Github, Linkedin, Twitter, Mail, ExternalLink } from 'lucide-react';
 import { AnimatePresence } from 'framer-motion';
 import ThemeToggle from './ThemeToggle';
 import { personalInfo } from '../data/portfolioData';
@@ -49,12 +49,15 @@ const Navbar = () => {
           {/* Logo */}
           <motion.div
             whileHover={{ scale: 1.05 }}
-            className="flex items-center space-x-2"
+            className="flex items-center space-x-2 sm:space-x-3"
           >
             <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-lg flex items-center justify-center">
               <span className="text-white font-bold text-lg sm:text-xl">{personalInfo.avatar.charAt(0)}</span>
             </div>
-            <span className="text-lg sm:text-xl font-bold gradient-text">{personalInfo.name}</span>
+            <div className="flex flex-col">
+              <span className="text-base sm:text-lg lg:text-xl xl:text-2xl font-bold gradient-text leading-tight">{personalInfo.name}</span>
+              <span className="text-xs sm:text-sm text-secondary hidden sm:block">{personalInfo.title}</span>
+            </div>
           </motion.div>
 
           {/* Desktop Navigation */}
@@ -70,6 +73,48 @@ const Navbar = () => {
                 {item.name}
               </motion.button>
             ))}
+            
+            {/* Tech Stack Icons */}
+            <div className="hidden lg:flex items-center space-x-3 px-4 py-2 bg-gray-100 dark:bg-dark-700 rounded-lg">
+              <motion.a
+                href={personalInfo.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.1, y: -2 }}
+                className="w-6 h-6 bg-black rounded flex items-center justify-center cursor-pointer"
+                title="GitHub"
+              >
+                <Github className="w-4 h-4 text-white" />
+              </motion.a>
+              <motion.a
+                href={personalInfo.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.1, y: -2 }}
+                className="w-6 h-6 bg-blue-600 rounded flex items-center justify-center cursor-pointer"
+                title="LinkedIn"
+              >
+                <Linkedin className="w-4 h-4 text-white" />
+              </motion.a>
+              <motion.a
+                href={personalInfo.website}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.1, y: -2 }}
+                className="w-6 h-6 bg-orange-500 rounded flex items-center justify-center cursor-pointer"
+                title="Portfolio"
+              >
+                <ExternalLink className="w-4 h-4 text-white" />
+              </motion.a>
+              <motion.div
+                whileHover={{ scale: 1.1, y: -2 }}
+                className="w-6 h-6 bg-blue-500 rounded flex items-center justify-center"
+                title="MySQL"
+              >
+                <span className="text-white text-xs font-bold">SQL</span>
+              </motion.div>
+            </div>
+            
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -83,6 +128,23 @@ const Navbar = () => {
 
           {/* Mobile menu button */}
           <div className="md:hidden flex items-center space-x-2">
+            {/* Mobile Tech Stack Icons */}
+            <div className="flex items-center space-x-2 mr-2">
+              <motion.div
+                whileHover={{ scale: 1.1 }}
+                className="w-5 h-5 bg-black rounded flex items-center justify-center"
+                title="GitHub"
+              >
+                <Github className="w-3 h-3 text-white" />
+              </motion.div>
+              <motion.div
+                whileHover={{ scale: 1.1 }}
+                className="w-5 h-5 bg-blue-600 rounded flex items-center justify-center"
+                title="LinkedIn"
+              >
+                <Linkedin className="w-3 h-3 text-white" />
+              </motion.div>
+            </div>
             <ThemeToggle />
             <motion.button
               whileTap={{ scale: 0.95 }}
@@ -122,6 +184,44 @@ const Navbar = () => {
                   <Download size={16} />
                   <span>Resume</span>
                 </motion.button>
+                
+                {/* Mobile Social Links */}
+                <div className="flex justify-center space-x-4 mt-4 pt-4 border-t border-gray-200 dark:border-dark-700">
+                  <motion.a
+                    href={personalInfo.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.1 }}
+                    className="w-8 h-8 bg-black rounded-full flex items-center justify-center"
+                  >
+                    <Github className="w-4 h-4 text-white" />
+                  </motion.a>
+                  <motion.a
+                    href={personalInfo.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.1 }}
+                    className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center"
+                  >
+                    <Linkedin className="w-4 h-4 text-white" />
+                  </motion.a>
+                  <motion.a
+                    href={personalInfo.twitter}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.1 }}
+                    className="w-8 h-8 bg-blue-400 rounded-full flex items-center justify-center"
+                  >
+                    <Twitter className="w-4 h-4 text-white" />
+                  </motion.a>
+                  <motion.a
+                    href={`mailto:${personalInfo.email}`}
+                    whileHover={{ scale: 1.1 }}
+                    className="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center"
+                  >
+                    <Mail className="w-4 h-4 text-white" />
+                  </motion.a>
+                </div>
               </div>
             </motion.div>
           )}
