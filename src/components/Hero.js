@@ -150,23 +150,22 @@ const Hero = () => {
             transition={{ duration: 0.5, delay: 0.4 }}
             className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8 sm:mb-12 px-4"
           >
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+            <a
+              href={personalInfo.resumeLink}
+              download
               className="bg-gradient-to-r from-primary-500 to-secondary-500 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold flex items-center space-x-2 hover:shadow-lg transition-all duration-300 w-full sm:w-auto justify-center"
             >
-              <span>View My Work</span>
-              <ArrowRight size={18} className="sm:w-5 sm:h-5" />
-            </motion.button>
-            
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              <Download size={18} className="sm:w-5 sm:h-5" />
+              <span>Download Resume</span>
+            </a>
+            <a
+              href={personalInfo.cvLink}
+              download
               className="border-2 border-primary-500 text-primary-500 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold flex items-center space-x-2 hover:bg-primary-500 hover:text-white transition-all duration-300 w-full sm:w-auto justify-center"
             >
               <Download size={18} className="sm:w-5 sm:h-5" />
               <span>Download CV</span>
-            </motion.button>
+            </a>
           </motion.div>
 
           {/* Social Links */}

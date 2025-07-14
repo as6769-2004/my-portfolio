@@ -2,13 +2,17 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Award, Users, Code, Coffee, User, Star, Target, Zap } from 'lucide-react';
-import { personalInfo, stats } from '../data/portfolioData';
+import { personalInfo, stats, certifications } from '../data/portfolioData';
+import { useNavigate } from 'react-router-dom';
 
 const About = () => {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
+
+  const [modalImage, setModalImage] = React.useState(null);
+  const navigate = useNavigate();
 
   const iconMap = {
     Award: Award,
@@ -31,6 +35,9 @@ const About = () => {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0 },
   };
+
+  // Only show 2 featured certificates
+  const featuredCertificates = certifications.filter(c => c.featured).slice(0, 2);
 
   return (
     <section id="about" className="mobile-padding section-bg">
