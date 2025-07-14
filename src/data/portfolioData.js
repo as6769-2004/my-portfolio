@@ -11,7 +11,7 @@ export const personalInfo = {
   github: "https://github.com/as6769-2004",
   linkedin: "https://www.linkedin.com/in/aditya-sagar-sharma-1955a7288/",
   twitter: "",
-  website: "https://yourwebsite.com",
+  website: "https://adityass-portfolio.netlify.app",
   avatar: "AS", // Initials for avatar
   profileImage: "/profile-image.jpg", // Your profile image - add to public folder
   heroImage: "/hero-image.jpg", // Your hero image - add to public folder
@@ -27,14 +27,14 @@ export const personalInfo = {
     "AI Integration & ML",
     "Backend & Database Engineering",
     "IoT & Hardware Integration"
-  ]
+  ],
+  resumeLink: "/data_files/resume.pdf",
+  cvLink: "/data_fles/resume.pdf"
 };
 
 export const stats = [
-  { icon: "Award", value: "5+", label: "Years Experience" },
-  { icon: "Users", value: "50+", label: "Happy Clients" },
-  { icon: "Code", value: "100+", label: "Projects Completed" },
-  { icon: "Coffee", value: "1000+", label: "Cups of Coffee" }
+  // { icon: "Award", value: "5+", label: "Years Experience" },
+
 ];
 
 export const skills = {
@@ -89,42 +89,44 @@ export const skills = {
 export const projects = [
   {
     id: 1,
-    title: "AI-Powered Task Manager",
-    description: "A smart task management application that uses AI to prioritize tasks and suggest optimal scheduling based on user behavior patterns.",
-    image: "/project1.jpg", // Add your project images
-    technologies: ["Flutter", "Python", "TensorFlow", "Firebase"],
-    github: "https://github.com/yourusername/ai-task-manager",
-    live: "https://ai-task-manager.vercel.app",
+    title: "Symptom Analyzer using Machine Learning and Ollama AI",
+    description: "An intelligent health assistant built with Streamlit that combines machine learning and the Mistral model from Ollama AI to analyze symptoms, predict diseases, and provide precautionary and medicinal suggestions. Includes interactive chat, session history, and real-time medical insights (informational only).",
+    image: "https://raw.githubusercontent.com/as6769-2004/symptom-analyzer-ml-ai/refs/heads/main/screenshots/Screenshot_1.png", // Make sure to place this image in your project directory
+    technologies: ["Python", "Streamlit", "Scikit-learn", "Ollama (Mistral)", "Pandas", "NumPy"],
+    github: "https://github.com/as6769-2004/symptom-analyzer-ml-ai",
+    live: "http://localhost:8501", // Replace with deployed link if hosted
     category: "AI/ML",
     featured: true
   },
   {
     id: 2,
-    title: "E-Commerce Platform",
-    description: "A full-stack e-commerce solution with real-time inventory management, payment processing, and admin dashboard.",
-    image: "/project2.jpg",
-    technologies: ["React", "Node.js", "MongoDB", "Stripe"],
-    github: "https://github.com/yourusername/ecommerce-platform",
-    live: "https://ecommerce-platform.vercel.app",
-    category: "Full Stack",
-    featured: true
-  },
+    title: "AgriEasy 🌿",
+    description: "AgriEasy is a farmer-centric mobile app that offers real-time weather alerts, pest management guidance, and expert help through a chatbot and multimedia help desk. With multi-language support and AI-powered features, it enhances decision-making and crop care for farmers.",
+    image: "https://raw.githubusercontent.com/as6769-2004/Agri-Easy/refs/heads/main/Screenshots/Homepage.jpg", // Replace with your actual image path
+    technologies: ["Flutter", "Python", "SQLite", "GPT-3.5"],
+    github: "https://github.com/as6769-2004/CropCare",
+    live: "Download via APK link", // Replace with APK hosting URL if available
+    category: "AgriTech / AI",
+    featured: false
+  }
+  ,
   {
     id: 3,
-    title: "IoT Smart Home Dashboard",
-    description: "A comprehensive dashboard for monitoring and controlling smart home devices with real-time data visualization.",
-    image: "/project3.jpg",
-    technologies: ["React", "Python", "MQTT", "Chart.js"],
-    github: "https://github.com/yourusername/smart-home-dashboard",
-    live: "https://smart-home-dashboard.vercel.app",
-    category: "IoT",
+    title: "Soil Moisture & Pump Control System",
+    description: "An IoT-based automated plant watering system using Arduino and Flutter. It monitors soil moisture and controls a water pump automatically or manually via a mobile/web interface. Ideal for smart farming and home gardening.",
+    image: "https://raw.githubusercontent.com/as6769-2004/Smart-Plant-Watering/refs/heads/main/screenshots/components.png", // Replace with your actual image path
+    technologies: ["Arduino", "C++", "Flutter", "HTML", "CSS", "JavaScript"],
+    github: "https://github.com/as6769-2004/Smart-Plant-Watering", // Replace with actual if exists
+    live: "Download APK", // Replace with actual APK link or hosting path
+    category: "IoT / Embedded",
     featured: false
-  },
+  }
+  ,
   {
     id: 4,
     title: "Portfolio Website",
     description: "A modern, responsive portfolio website built with React and Tailwind CSS, featuring dark/light mode and smooth animations.",
-    image: "/project4.jpg",
+    image: "https://raw.githubusercontent.com/as6769-2004/my-portfolio/refs/heads/main/src/screenshots/front.png?token=GHSAT0AAAAAADGJJN344EHK5BA546RBGRF22DTWHJQ",
     technologies: ["React", "Tailwind CSS", "Framer Motion"],
     github: "https://github.com/yourusername/portfolio",
     live: "https://adityass-portfolio.netlify.app/",
@@ -133,26 +135,61 @@ export const projects = [
   },
   {
     id: 5,
-    title: "AI Chat Assistant",
-    description: "An intelligent chat assistant powered by OpenAI's GPT model, capable of handling customer inquiries and providing support.",
-    image: "/project5.jpg",
-    technologies: ["Python", "OpenAI API", "Flask", "WebSocket"],
-    github: "https://github.com/yourusername/ai-chat-assistant",
-    live: "https://ai-chat-assistant.vercel.app",
-    category: "AI/ML",
+    title: "Crime Record Management System",
+    description: "A scalable and secure system designed for law enforcement agencies to manage crime data, officer records, cases, evidence, and suspects efficiently. Built with a robust MySQL backend, it offers detailed crime tracking, officer authentication, case logging, and witness management.",
+    image: "/projects/crime-record-system.jpg", // Replace with your actual project image
+    technologies: ["Java (Swing)", "MySQL", "JDBC", "HTML/CSS (for report interfaces)"],
+    github: "https://github.com/as6769-2004/crime-record-management-system", // Replace with actual repo link if available
+    live: "Desktop Application", // Or hosted docs/download if available
+    category: "DBMS",
+    featured: false
+  }
+  ,
+  {
+    id: 6,
+    title: "📸 SnapTask",
+    description: "SnapTask is a privacy-first task manager that lets you capture tasks using your camera or voice. With offline support, local storage, and smart categorization, it streamlines productivity through visual and audio task input on mobile and web.",
+    image: "https://raw.githubusercontent.com/as6769-2004/snap-task/refs/heads/main/screenshorts/Home.png", // Replace with your actual image path
+    technologies: ["Flutter", "Dart", "Hive", "camera", "flutter_sound"],
+    github: "https://github.com/as6769-2004/snap-task", // Replace with your actual repo URL
+    live: "https://as6769-2004.github.io/snap-task/", // Or APK / Web URL if hosted; update if available
+    category: "Productivity / Offline Tools",
+    featured: true
+  },
+  {
+    id: 7,
+    title: "Road Safety System",
+    description: "A web-based application aimed at improving road safety through accident logging, record viewing, emergency service access, and analytical insights. Built with Node.js and MongoDB, it allows centralized accident tracking and trend analysis.",
+    image: "/projects/road-safety.jpg", // Replace with your actual image path
+    technologies: ["Node.js", "Express.js", "MongoDB", "JavaScript", "HTML/CSS"],
+    github: "https://github.com/as6769-2004/Road-Accident-Safety-System", // Replace with actual repo URL
+    live: "http://localhost:3000", // Replace with deployed link if available
+    category: "Frontend",
     featured: false
   },
   {
-    id: 6,
-    title: "Fitness Tracking App",
-    description: "A mobile fitness tracking application with workout planning, progress monitoring, and social features.",
-    image: "/project6.jpg",
-    technologies: ["Flutter", "Firebase", "Google Fit API"],
-    github: "https://github.com/yourusername/fitness-tracker",
-    live: "https://fitness-tracker.vercel.app",
-    category: "Mobile",
+    id: 8,
+    title: "✈️ Airline Management System",
+    description: "A desktop-based airline reservation system built using Java Swing and MySQL. It offers features like flight booking, passenger management, boarding pass generation, admin login, and secure database operations through JDBC integration.",
+    image: "/projects/airline-management.jpg", // Replace with actual screenshot path
+    technologies: ["Java", "Java Swing", "MySQL", "JDBC"],
+    github: "https://github.com/as6769-2004/Airline-Reservation-System",
+    live: "Desktop Application", // Not hosted online; desktop-based
+    category: "DBMS",
+    featured: false
+  },
+  {
+    id: 9,
+    title: "🐾 Pet Adoption Management System",
+    description: "A responsive web-based DBMS application that streamlines pet adoption processes. It includes features like pet listings, user profiles, adoption requests, donation tracking, rehoming, and center-wise pet availability using a structured MySQL schema.",
+    image: "/projects/pet-adoption.jpg", // Replace with your actual image path
+    technologies: ["HTML", "CSS", "JavaScript", "PHP", "MySQL"],
+    github: "https://github.com/as6769-2004/pet-adoption-system", // Replace with your actual repo URL
+    live: "", // Replace with hosted link if any
+    category: "DBMS",
     featured: false
   }
+
 ];
 
 export const experience = [
@@ -168,7 +205,9 @@ export const experience = [
       "Implemented AI-powered features that increased user engagement by 60%",
       "Mentored 5 junior developers and improved team productivity"
     ],
-    technologies: ["React", "Python", "TensorFlow", "AWS", "Docker"]
+    technologies: ["React", "Python", "TensorFlow", "AWS", "Docker"],
+    image: "/data/data_images/experience1.jpg",
+    featured: true
   },
   {
     id: 2,
@@ -182,7 +221,9 @@ export const experience = [
       "Improved app performance by 35% through code optimization",
       "Implemented CI/CD pipeline reducing deployment time by 50%"
     ],
-    technologies: ["Flutter", "Dart", "Firebase", "Git", "REST APIs"]
+    technologies: ["Flutter", "Dart", "Firebase", "Git", "REST APIs"],
+    image: "/data_images/Be10x.jpg",
+    featured: true
   },
   {
     id: 3,
@@ -196,7 +237,9 @@ export const experience = [
       "Automated data processing reducing manual work by 70%",
       "Created interactive dashboards for real-time data visualization"
     ],
-    technologies: ["Python", "Pandas", "Scikit-learn", "TensorFlow", "PostgreSQL"]
+    technologies: ["Python", "Pandas", "Scikit-learn", "TensorFlow", "PostgreSQL"],
+    image: "/data/data_images/experience3.jpg",
+    featured: false
   },
   {
     id: 4,
@@ -210,79 +253,120 @@ export const experience = [
       "Improved website performance by 45% through optimization",
       "Implemented modern CSS frameworks and design systems"
     ],
-    technologies: ["React", "JavaScript", "HTML/CSS", "Git", "REST APIs"]
+    technologies: ["React", "JavaScript", "HTML/CSS", "Git", "REST APIs"],
+    image: "/data_images/Be10x.jpg",
+    featured: false
   }
 ];
 
 export const education = [
   {
     id: 1,
-    degree: "Bachelor of Computer Science",
-    school: "University of Technology",
-    period: "2015 - 2019",
-    location: "City, Country",
-    description: "Focused on software engineering, algorithms, and data structures. Graduated with honors.",
+    degree: "B.Tech (Bacholer of Technology)",
+    school: "SRM Institute of Science and Technology",
+    period: "2023-27",
+    location: "Chennai , Tamil nadu , India",
+    description: "Pusured with specilization CSE Core Focused on software engineering, algorithms, and data structures.",
+
     achievements: [
-      "Graduated with First Class Honours",
-      "Final Year Project: AI-Powered Learning Management System",
-      "Member of Computer Science Society"
+      "Scored 8.89 GPA (Till 2nd Year)"
+      // "Final Year Project: AI-Powered Learning gement System",
+      // "Member of Computer Science Society"
     ]
   },
   {
     id: 2,
-    degree: "Machine Learning Certification",
-    school: "Coursera",
-    period: "2020",
-    location: "Online",
-    description: "Comprehensive course covering machine learning algorithms, neural networks, and deep learning.",
+    degree: "Class 12th (Senior Secondary)",
+    school: "Global International School",
+    period: "2022",
+    location: "Muzaffarpur , Bihar , India",
+    description: "Completed senior secondary education with specialization in Science PCM stream.",
     achievements: [
-      "Completed with 95% grade",
-      "Implemented 10+ ML projects",
-      "Specialized in Computer Vision and NLP"
+      "Scored 66% overall"
+    ]
+  },
+  {
+    id: 3,
+    degree: "Class 10th (Matriculation)",
+    school: "Paramount Academy",
+    period: "2020",
+    location: "Muzaffarpur , Bihar ,  India",
+    description: "Completed secondary education with a focus on Science, Mathematics, and Computer Applications under CBSE/State Board.",
+    achievements: [
+      "Scored 78% overall"
     ]
   }
+
+
 ];
 
 export const certifications = [
   {
     id: 1,
-    name: "AWS Certified Developer",
-    issuer: "Amazon Web Services",
-    date: "2023",
-    credentialId: "AWS-123456",
-    link: "https://aws.amazon.com/verification"
+    name: "Flipkart Workshop",
+    issuer: "AARUSH",
+    date: "Sep-2023",
+    credentialId: "Flip_3002",
+    link: "https://www.aaruush.org/verify/Flip_3002",
+    image: "/data_images/flipkart_workshop.jpg",
+    featured: true
   },
   {
     id: 2,
-    name: "Google Cloud Professional Developer",
-    issuer: "Google",
-    date: "2022",
-    credentialId: "GCP-789012",
-    link: "https://cloud.google.com/certification"
+    name: "Cosmic Web Workshop",
+    issuer: "AARUSH",
+    date: "Sep-2023",
+    credentialId: "AWS-123456",
+    link: "https://www.aaruush.org/verify/Cosmic_1080",
+    image: "/data_images/cosmic_workshop.jpg",
+    featured: false
   },
   {
     id: 3,
-    name: "Microsoft Azure Developer",
-    issuer: "Microsoft",
-    date: "2021",
-    credentialId: "AZURE-345678",
-    link: "https://docs.microsoft.com/en-us/certifications"
+    name: "Introducing Generative Al with AWS",
+    issuer: "UDACITY",
+    date: "June-2025",
+    credentialId: "92a79e88-3d06-11f0-8be0-3b9f67dda36d",
+    link: "https://www.udacity.com/certificate/e/92a79e88-3d06-11f0-8be0-3b9f67dda36d",
+    image: "/data_images/udacity_gen_ai.png",
+    featured: true
+  },
+  {
+    id: 1,
+    name: "Workshop on Data Visualizationwith Python of 3 Hours",
+    issuer: "Lets Upgrade",
+    date: "Feb-2024",
+    credentialId: "LUEWDVFEB1241000",
+    link: "https://verify.letsupgrade.in/certificate/LUEWDVFEB1241000",
+    image: "/data_images/python_workshop.jpg",
+    featured: false
+  },
+  {
+    id: 1,
+    name: "PROBLEM SOLVING IN ARTIFICIAL INTELLIGENCE",
+    issuer: "Udemy",
+    date: "May-2025",
+    credentialId: "AWS-123456",
+    link: "https://www.udemy.com/certificate/UC-3982a06a-1178-43ae-a4d0-716671ccf929/",
+    image: "/data_images/udemy_problem_solving_ai.jpg",
+    featured: false
   }
+
 ];
 
 export const contactInfo = {
   email: "adityasagar9991@gmail.com",
   phone: "+91 9709303105",
-  location: "Your City, Country",
+  location: "Muzaffarpur, Bihar, India 844120",
   social: {
-    github: "https://github.com/yourusername",
-    linkedin: "https://linkedin.com/in/yourusername",
-    twitter: "https://twitter.com/yourusername",
-    instagram: "https://instagram.com/yourusername",
-    youtube: "https://youtube.com/@yourusername"
+    github: "https://github.com/as6769-2004",
+    linkedin: "https://www.linkedin.com/in/aditya-sagar-sharma-1955a7288/",
+    twitter: "",
+    instagram: "https://instagram.com/adityass0401",
+    youtube: ""
   },
-  availability: "Available for freelance opportunities and full-time positions",
-  responseTime: "Usually responds within 24 hours"
+  availability: "Available for internships opportunities.",
+  responseTime: "Usually responds within 30 min."
 };
 
 export const siteConfig = {
@@ -290,7 +374,7 @@ export const siteConfig = {
   description: "Passionate Full Stack Developer specializing in AI-integrated applications and practical solutions",
   keywords: ["Full Stack Developer", "AI", "Flutter", "React", "Python", "Machine Learning"],
   author: "Aditya Sagar Sharma",
-  url: "https://your-portfolio.vercel.app",
+  url: "https://adityass-portfolio.netlify.app",
   favicon: "/favicon.ico",
   profileImage: "/profile-image.jpg",
   heroImage: "/hero-image.jpg"
