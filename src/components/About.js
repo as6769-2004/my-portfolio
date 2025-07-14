@@ -11,9 +11,6 @@ const About = () => {
     threshold: 0.1,
   });
 
-  const [modalImage, setModalImage] = React.useState(null);
-  const navigate = useNavigate();
-
   const iconMap = {
     Award: Award,
     Users: Users,
@@ -35,9 +32,6 @@ const About = () => {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0 },
   };
-
-  // Only show 2 featured certificates
-  const featuredCertificates = certifications.filter(c => c.featured).slice(0, 2);
 
   return (
     <section id="about" className="mobile-padding section-bg">

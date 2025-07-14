@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, Github, Linkedin, Mail, Download, Code, Sparkles } from 'lucide-react';
+import { Github, Linkedin, Mail, Download, Code, Sparkles } from 'lucide-react';
 import { personalInfo, contactInfo } from '../data/portfolioData';
 
 const Hero = () => {

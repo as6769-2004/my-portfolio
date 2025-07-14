@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { ExternalLink, Github, FolderOpen, Star, Globe, Smartphone, Brain, Code, Server, Database, Cloud, Settings } from 'lucide-react';

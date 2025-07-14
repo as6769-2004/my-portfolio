@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Calendar, MapPin, Building, Award, Briefcase, GraduationCap, Star, Target, Code, Server, Database, Cloud, Settings, Brain, Globe } from 'lucide-react';
-import { experience, education, certifications } from '../data/portfolioData';
+import { Calendar, MapPin, Building, Briefcase, Star, Target, Code, Server, Database, Cloud, Settings, Brain, Globe } from 'lucide-react';
+import { experience } from '../data/portfolioData';
 import { useNavigate } from 'react-router-dom';
 
 const Experience = () => {
