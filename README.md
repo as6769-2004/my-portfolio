@@ -9,9 +9,10 @@ A beautiful, responsive portfolio website built with React, Tailwind CSS, and Fr
 - **Dark/Light Mode**: Smooth theme switching with persistent state
 - **Custom Cursor**: Interactive cursor with hover effects (desktop only)
 - **Smooth Animations**: Powered by Framer Motion
-- **Data-Driven**: Easy to customize content through JSON data structure
+- **Data-Driven**: Easy to customize content through a single data file
 - **Modern UI**: Clean, professional design with gradient accents
 - **Mobile-First**: Touch-friendly interface with optimized mobile experience
+- **Featured Sections**: Show only your best work/experience/certificates on the main page, with 'See All' pages for full lists
 
 ## 📁 Project Structure
 
@@ -19,30 +20,33 @@ A beautiful, responsive portfolio website built with React, Tailwind CSS, and Fr
 src/
 ├── components/          # React components
 │   ├── About.js        # About section
+│   ├── Certificates.js # Featured certificates (main page)
+│   ├── AllCertificates.js # All certificates page
 │   ├── Contact.js      # Contact form and info
-│   ├── Experience.js   # Work experience and education
+│   ├── Education.js    # Education section
+│   ├── Experience.js   # Featured work experience (main page)
+│   ├── AllExperience.js # All experience page
 │   ├── Footer.js       # Footer component
 │   ├── Hero.js         # Hero/landing section
 │   ├── Navbar.js       # Navigation bar
-│   ├── Projects.js     # Projects showcase
+│   ├── Projects.js     # Featured projects (main page)
+│   ├── AllProjects.js  # All projects page
 │   ├── Skills.js       # Skills and technologies
 │   └── ThemeToggle.js  # Theme toggle component
 ├── context/
 │   └── ThemeContext.js # Theme context provider
 ├── data/
-│   └── portfolioData.js # All portfolio data
+│   └── portfolioData.js # All portfolio data (edit this file!)
 ├── App.js              # Main app component
 ├── index.css           # Global styles
 └── index.js            # App entry point
 ```
 
-## 🎨 Customization
+## 🎨 Customization: Edit Your Data in `src/data/portfolioData.js`
 
 ### 1. Personal Information
 
-Edit `src/data/portfolioData.js` to update your personal details:
-
-```javascript
+```js
 export const personalInfo = {
   name: "Your Name",
   title: "Full Stack Developer",
@@ -55,6 +59,9 @@ export const personalInfo = {
   twitter: "https://twitter.com/yourusername",
   website: "https://yourwebsite.com",
   avatar: "AS", // Your initials for avatar
+  profileImage: "/profile-image.jpg", // Place in public/
+  heroImage: "/hero-image.jpg", // Place in public/
+  favicon: "/favicon.ico", // Place in public/
   bio: "Your bio description...",
   about: [
     "First paragraph about you...",
@@ -64,15 +71,15 @@ export const personalInfo = {
     "Your specialty 1",
     "Your specialty 2",
     "Your specialty 3"
-  ]
+  ],
+  resumeLink: "/resume.pdf", // Place your resume in public/
+  cvLink: "/cv.pdf" // Place your CV in public/
 };
 ```
 
 ### 2. Statistics
 
-Update your achievements and stats:
-
-```javascript
+```js
 export const stats = [
   { icon: "Award", value: "5+", label: "Years Experience" },
   { icon: "Users", value: "50+", label: "Happy Clients" },
@@ -83,9 +90,7 @@ export const stats = [
 
 ### 3. Skills
 
-Organize your skills by categories:
-
-```javascript
+```js
 export const skills = {
   categories: [
     {
@@ -103,20 +108,18 @@ export const skills = {
 
 ### 4. Projects
 
-Add your projects with detailed information:
-
-```javascript
+```js
 export const projects = [
   {
     id: 1,
     title: "Project Name",
     description: "Project description...",
-    image: "/project1.jpg", // Add project images to public folder
+    image: "/project1.jpg", // Place images in public/ or use a full URL
     technologies: ["React", "Node.js", "MongoDB"],
     github: "https://github.com/yourusername/project",
     live: "https://project-demo.vercel.app",
     category: "Full Stack",
-    featured: true
+    featured: true // Only featured projects show on main page
   },
   // Add more projects...
 ];
@@ -124,9 +127,7 @@ export const projects = [
 
 ### 5. Experience
 
-Update your work experience:
-
-```javascript
+```js
 export const experience = [
   {
     id: 1,
@@ -140,7 +141,9 @@ export const experience = [
       "Achievement 2",
       "Achievement 3"
     ],
-    technologies: ["React", "Python", "AWS"]
+    technologies: ["React", "Python", "AWS"],
+    image: "/data_images/experience1.jpg", // Place images in public/data_images/
+    featured: true // Only featured experiences show on main page
   },
   // Add more experience...
 ];
@@ -148,9 +151,7 @@ export const experience = [
 
 ### 6. Education
 
-Add your educational background:
-
-```javascript
+```js
 export const education = [
   {
     id: 1,
@@ -170,9 +171,7 @@ export const education = [
 
 ### 7. Certifications
 
-List your certifications:
-
-```javascript
+```js
 export const certifications = [
   {
     id: 1,
@@ -180,7 +179,9 @@ export const certifications = [
     issuer: "Amazon Web Services",
     date: "2023",
     credentialId: "AWS-123456",
-    link: "https://aws.amazon.com/verification"
+    link: "https://aws.amazon.com/verification",
+    image: "/data_images/certificate1.jpg", // Place images in public/data_images/
+    featured: true // Only featured certificates show on main page
   },
   // Add more certifications...
 ];
@@ -188,9 +189,7 @@ export const certifications = [
 
 ### 8. Contact Information
 
-Update contact details:
-
-```javascript
+```js
 export const contactInfo = {
   email: "your.email@example.com",
   phone: "+1 (555) 123-4567",
@@ -207,27 +206,22 @@ export const contactInfo = {
 };
 ```
 
-## 🎯 Available Icons
+## ⭐️ Featured Items & 'See All' Pages
+- Only items with `featured: true` are shown on the main page for Projects, Experience, and Certificates.
+- Use the 'See All' buttons to view all entries for each section (e.g., all projects, all experience, all certificates).
 
-The portfolio uses Lucide React icons. Available icons for stats include:
-- `Award`
-- `Users`
-- `Code`
-- `Coffee`
-- `Mail`
-- `Phone`
-- `MapPin`
-- `Github`
-- `Linkedin`
-- `Twitter`
-- `Instagram`
-- `Youtube`
-- `Download`
-- `ExternalLink`
-- `Send`
-- `Calendar`
-- `Building`
-- And many more...
+## 🖼️ Image Paths
+- Place all images in the `public/` or `public/data_images/` folder.
+- Use paths like `/data_images/your-image.jpg` in your data file.
+- For best results, use rectangular images for certificates.
+
+## 📄 Resume & CV
+- Place your resume and CV files in the `public/` folder as `resume.pdf` and `cv.pdf`.
+- Update the `resumeLink` and `cvLink` in `personalInfo` if you use different filenames.
+
+## 📱 Mobile Compatibility
+- The site is fully responsive and mobile-friendly.
+- All grids, images, and layouts adapt to mobile screens.
 
 ## 🚀 Getting Started
 
@@ -244,7 +238,7 @@ The portfolio uses Lucide React icons. Available icons for stats include:
 
 3. **Customize your data**
    - Edit `src/data/portfolioData.js` with your information
-   - Add project images to the `public/` folder
+   - Add images and files to the `public/` folder
    - Update social media links
 
 4. **Start development server**
@@ -257,64 +251,6 @@ The portfolio uses Lucide React icons. Available icons for stats include:
    npm run build
    ```
 
-## 🎨 Styling
-
-The portfolio uses Tailwind CSS with custom CSS variables. Key classes:
-
-- `.gradient-text`: Gradient text effect
-- `.card-hover`: Hover effects for cards
-- `.section-bg`: Section background styling
-- `.mobile-optimized`: Mobile-responsive padding
-- `.interactive`: Interactive element styling
-
-## 📱 Mobile Optimization
-
-The portfolio is fully optimized for mobile devices:
-- Touch-friendly buttons and links
-- Responsive typography
-- Optimized spacing and padding
-- Hidden custom cursor on mobile
-- Mobile-first design approach
-
-## 🌙 Theme System
-
-The portfolio includes a complete dark/light mode system:
-- Persistent theme state
-- Smooth transitions
-- Optimized colors for both themes
-- Automatic theme detection
-
-## 🔧 Helper Functions
-
-The data file includes helper functions:
-- `getProjectsByCategory(category)`: Filter projects by category
-- `getFeaturedProjects()`: Get only featured projects
-- `getSkillsByCategory(categoryName)`: Get skills by category
-
-## 📝 Adding New Sections
-
-To add new sections:
-
-1. Create a new component in `src/components/`
-2. Import and use data from `portfolioData.js`
-3. Add the component to `App.js`
-4. Update navigation in `Navbar.js`
-
-## 🎯 Performance Tips
-
-- Optimize images before adding to `public/`
-- Use appropriate image formats (WebP for better compression)
-- Keep project descriptions concise
-- Use meaningful alt text for images
-
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
-## 🤝 Contributing
-
-Feel free to submit issues and enhancement requests!
-
 ---
 
-**Happy coding! 🚀**
+**Enjoy your modern, data-driven portfolio!**

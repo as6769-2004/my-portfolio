@@ -2,8 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Award, Users, Code, Coffee, User, Star, Target, Zap } from 'lucide-react';
-import { personalInfo, stats, certifications } from '../data/portfolioData';
-import { useNavigate } from 'react-router-dom';
+import { personalInfo, stats } from '../data/portfolioData';
 
 const About = () => {
   const [ref, inView] = useInView({
