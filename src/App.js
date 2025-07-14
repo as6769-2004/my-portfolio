@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from './context/ThemeContext';
 import CustomCursor from './components/CustomCursor';
 import Navbar from './components/Navbar';
@@ -9,8 +9,13 @@ import About from './components/About';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Experience from './components/Experience';
+import Certificates from './components/Certificates';
+import Education from './components/Education';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import AllProjects from './components/AllProjects';
+import AllCertificates from './components/AllCertificates';
+import AllExperience from './components/AllExperience';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -47,14 +52,23 @@ function App() {
         <div className="min-h-screen bg-white dark:bg-dark-900">
           <CustomCursor />
           <Navbar />
-          <main>
-            <Hero />
-            <About />
-            <Skills />
-            <Projects />
-            <Experience />
-            <Contact />
-          </main>
+          <Routes>
+            <Route path="/" element={
+              <main>
+                <Hero />
+                <About />
+                <Skills />
+                <Projects />
+                <Experience />
+                <Certificates />
+                <Education />
+                <Contact />
+              </main>
+            } />
+            <Route path="/all-projects" element={<AllProjects />} />
+            <Route path="/all-certificates" element={<AllCertificates />} />
+            <Route path="/all-experience" element={<AllExperience />} />
+          </Routes>
           <Footer />
         </div>
       </Router>
