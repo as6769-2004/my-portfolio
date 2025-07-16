@@ -13,7 +13,7 @@ export const personalInfo = {
   twitter: "",
   website: "https://adityass-portfolio.netlify.app",
   avatar: "AS", // Initials for avatar
-  profileImage: "/profile-image.jpg", // Your profile image - add to public folder
+  profileImage: "/profile-image.jpg",
   heroImage: "/hero-image.jpg", // Your hero image - add to public folder
   favicon: "/favicon.ico", // Your favicon - add to public folder
   bio: "I'm a passionate Full Stack Developer specializing in AI-integrated applications and practical solutions. My journey in technology has evolved from basic programming to building complex systems that solve real-world problems through innovative AI integration.",
@@ -125,7 +125,7 @@ export const projects = [
   {
     id: 4,
     title: "Portfolio Website",
-    description: "A modern, responsive portfolio website built with React and Tailwind CSS, featuring dark/light mode and smooth animations.",
+    description: "A responsive portfolio website built with React and Tailwind CSS, featuring dark/light mode and smooth animations.",
     image: "https://raw.githubusercontent.com/as6769-2004/my-portfolio/refs/heads/main/src/screenshots/front.png?token=GHSAT0AAAAAADGJJN344EHK5BA546RBGRF22DTWHJQ",
     technologies: ["React", "Tailwind CSS", "Framer Motion"],
     github: "https://github.com/yourusername/portfolio",
