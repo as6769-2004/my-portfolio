@@ -347,7 +347,7 @@ export const education = [
   },
   {
     id: 2,
-    degree: "Class 12th (Senior Secondary)",
+    degree: "Class 12th (Senior Secondary )",
     school: "Global International School",
     period: "2022",
     location: "Muzaffarpur , Bihar , India",
