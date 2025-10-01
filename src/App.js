@@ -39,13 +39,13 @@ function App() {
             className="text-center"
           >
             <div className="w-16 h-16 border-4 border-primary-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-            <h2 className="text-2xl font-bold gradient-text">Loading Portfolio<span className="loading-dots"></span></h2>
+            <h2 className="text-2xl font-bold gradient-text">Loading Portfolio...<span className="loading-dots"></span></h2>
           </motion.div>
         </div>
       </ThemeProvider>
     );
   }
-
+ 
   return (
     <ThemeProvider>
       <Router>
