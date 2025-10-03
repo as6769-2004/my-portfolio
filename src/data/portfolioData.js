@@ -261,7 +261,7 @@ export const experience = [
     period: "June 2025 - July 2025",
     location: "West Bengal",
     description:
-      "Facilitated digital literacy workshops for rural women, empowering participants with essential computer and online skills through hands-on sessions and bilingual learning materials.",
+      "Facilitated digital literacy workshop for rural women, empowering participants with essential computer and online skills through hands-on sessions and bilingual learning materials.",
     achievements: [
       "Conducted 40+ hours of digital literacy workshops covering MS Word, Excel, Gmail, and safe internet usage",
       "Designed bilingual digital guides, flowcharts, and tutorials to improve accessibility and confidence",
