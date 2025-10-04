@@ -337,7 +337,7 @@ export const education = [
     period: "2023-27",
     location: "Chennai , Tamil nadu , India",
     description:
-      "Pusured with specilization CSE Core Focused on software engineering, algorithms, and data structures.",
+      "Pusured with specilization CSE Core Focused on software engineering , algorithms, and data structures.",
 
     achievements: [
       "Scored 8.89 GPA (Till 2nd Year)",
