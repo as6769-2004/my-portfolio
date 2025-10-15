@@ -145,7 +145,7 @@
     width: 100%;
   }
   
-  
+
   .skill-badge {
     background: linear-gradient(135deg, #a259ec, #38bdf8);
     color: white;
@@ -178,7 +178,7 @@
   .text-primary {
     @apply text-gray-900 dark:text-gray-100;
   }
-  
+   
   .text-secondary {
     @apply text-gray-600 dark:text-gray-400;
   }
